@@ -41,9 +41,9 @@ environment:
 #    - R_VERSION: 3.6.0
       
 build_script:
-  - travis-tool.sh install_bioc BiocManager BiocCheck devtools testthat FRASER
-  - travis-tool.sh install_bioc_deps
-  - R -e "BiocManager::install(Ncpus=5, ask=FALSE, upgrade=TRUE)"
+  - travis-tool.sh install_bioc BiocManager BiocCheck devtools testthat GenomeInfoDbData
+  - travis-tool.sh install_bioc TxDb.Hsapiens.UCSC.hg19.knownGene org.Hs.eg.db FRASER
+  - R -e "BiocManager::install(ask=FALSE, upgrade=TRUE)"
   - Rscript setupEnv.R
 
 test_script:
